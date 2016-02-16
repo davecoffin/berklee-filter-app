@@ -1,0 +1,267 @@
+@headerfonts: "Lato", 'Open Sans', 'Helvetica Neue Light', 'Helvetica Light', 'Arial Light', Arial, sans-serif;
+@montfont: 'Montserrat', sans-serif;
+@berkleeRed: #f01936;
+@sampleImage1: 'https://www.berklee.edu/sites/default/files/styles/scale_to_480px_width/public/summer-14-2.jpg';
+@sampleImage2: 'https://www.berklee.edu/sites/default/files/styles/scale_to_480px_width/public/BoCo-Merger-SLIDER-1.jpg';
+@sampleImage3: 'https://www.berklee.edu/sites/default/files/styles/scale_to_480px_width/public/Online-Slider-2.16.jpg';
+@sampleImage4: 'https://www.berklee.edu/sites/default/files/styles/scale_to_480px_width/public/Music-Therapy-1.jpg';
+@sampleImage5: 'https://www.berklee.edu/sites/default/files/styles/scale_to_480px_width/public/Orchestra-1.jpg';
+@sampleImage6: 'https://www.berklee.edu/sites/default/files/styles/scale_to_480px_width/public/Grad-Story-SLIDER.jpg';
+
+// This block removes the padding from its container if its placed in
+// the traditional content block. 
+#page-content {
+  #bFilter {
+    margin: 0px -15px;
+  }
+}
+
+#bFilter {
+  font-family: @montfont;
+  color: #333;
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .grid-5 {
+    width: 20%;
+  }
+  
+  .grid-4 {
+    width: 25%;
+  }
+  
+  .grid {
+    @media screen and (max-width: 1000px) {
+      width: 33.33%;
+      width: calc(100%  /3);
+    }
+    @media screen and (max-width: 788px) {
+      width: 50%;
+    }
+    @media screen and (max-width: 550px) {
+      width: 100%;
+    }
+  }
+  
+  #bFilter-header {
+    padding: 0px 15px 10px 15px;
+    
+    h1 {
+      font-family: @headerfonts;
+      font-size: 32px;
+      margin: 5px 0px;
+      color: #333;
+      font-weight: 300;
+    }
+  }
+  
+  #bFilter-options {
+    background-color: #f8f8f8;
+    padding: 5px 15px;
+    
+    .bOption {
+      float: left;
+      padding: 15px 15px 15px 0px;
+      cursor: pointer;
+      position: relative;
+            
+      span {
+        border-bottom: 3px solid #d5d5d5;
+        font-family: @montfont;
+        font-weight: 700;
+        font-size: 22px;
+        color: #7b7b7b;
+        text-transform: uppercase;
+        display: block;
+        
+        &:after {
+          content: " +";
+        }
+      }
+      
+      &.selected {
+        span {
+          border-bottom: 3px solid @berkleeRed;
+          color: @berkleeRed;
+          &:after {
+            content: " -";
+          }
+        }
+      }
+      
+      .bOption-overlay {
+        z-index: 999;
+        background-color: white;
+        width: ~"calc(100% - 15px)";
+        position: absolute;
+        box-shadow: 1px 1px 7px rgba(40,38,37,0.13);
+        padding: 5px 0px;
+        border-radius: 0px 0px 4px 4px;
+        
+        .filter_input {
+          
+          label {
+            font-size: 12px;
+            color: #c2c2c2;
+            padding: 3px 5px;
+            cursor: pointer;
+            display: block;
+
+            &:hover {
+              background-color: #f5f5f5;
+            }
+            
+            &:selected {
+              color: #7b7b7b;
+            }
+            
+            input {
+              cursor: pointer;
+            }
+          }          
+        }
+        
+        .close_filter_overlay {
+          text-align: center;
+          cursor: pointer;
+          color: @berkleeRed;
+          padding: 5px 0px;
+          border-radius: 3px;
+          font-size: 12px;
+          margin: 10px 5px 0px 5px;
+          
+          &:hover {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+  }
+  
+  #bFilter-applied {
+    padding: 15px;
+    
+    .bTag {
+      margin: 3px 3px 3px 0px;
+      display: inline-block;
+      border-radius: 3px;
+      background-color: @berkleeRed;
+      font-family: @montfont;
+      color: white;
+      padding: 6px 13px;
+      border: 1px solid @berkleeRed;
+      font-size: 14px;
+      
+      i {
+        cursor: pointer;
+      }
+      
+      &.clear_all {
+        background-color: transparent;
+        color: gray;
+        cursor: pointer;
+        border: 1px solid #E0E0E0;
+        
+        &:hover {
+          background-color: #E0E0E0;
+        }
+      }
+    }
+    
+  }
+  
+  #bFilter-results {
+    margin: 0px -1px;
+    
+    .bResult {
+      float: left;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      padding: 1px;
+            
+      .bResult-content {
+        background-color: black;
+        padding: 5px;
+        position: relative;
+        
+        .bResult-image {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          opacity: .4;
+          z-index: 99;
+          background-position: center center;
+          background-size: cover;
+        }
+        
+        .bResult-data {
+          position: relative;
+          z-index: 100;
+          
+          .display_group {
+            display: block;
+            padding: 10px 0px;
+            text-align: center;
+            font-family: @headerfonts;
+            font-weight: 800;
+            font-size: 13px;
+            color: lime;
+            text-transform: uppercase;
+          }
+          
+          .program_title {
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+            height: 130px;
+            display: table;
+            position: relative;
+            
+            span {
+              display: table-cell;
+              vertical-align: middle;
+            }
+            
+            a.view_link {
+              display: none;
+              position: absolute;
+              bottom: -22px;
+              left: 50%;
+              margin-left: -30%;
+              width: 60%;
+            }
+          }
+          
+          .filter_results_holder {
+            height: 54px;
+            overflow: hidden;
+            position: relative;
+            
+            table.filter_results {
+              cursor: pointer;
+              width: 100%;
+              font-size: 11px;
+              position: absolute;
+              
+              td.filter {
+                padding: 2px;
+                height: 16px;
+                text-align: right;
+                text-transform: uppercase;
+                color: #A7A7A7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

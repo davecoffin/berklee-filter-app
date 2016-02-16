@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Berklee College of Music</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" /> 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script src="bFilter.js"></script>		
+		<script src="tag_categories.js"></script>		
+		<script src="isotope.pkgd.min.js"></script>
+		<link rel="stylesheet" type="text/css"  href="style.css"/>
+		<link rel="stylesheet" type="text/css"  href="bFilter.css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700|Lato:300,300italic,400,400italic,700,700italic,900" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<script>
+function showLink() {
+  
+}
+</script>
+	</head>
+	<body>
+  	<div id="head">
+    	<img src="https://www.berklee.edu/sites/all/themes/suite_222/logo.png" alt="Berklee Logo" title="Berklee Homepage">
+  	</div>
+  	<div id="page-content">
+    	<div id="bFilter">
+      	<div id="bFilter-header">
+        	<h1>Find Your Program</h1>
+      	</div>
+      	<div id="bFilter-options" class="clearfix"></div>
+      	<div id="bFilter-applied"></div>
+      	<div id="bFilter-results" class="clearfix"></div>
+    	</div>
+  	</div>
+  	<div id="foot"></div>
+  	<script>
+    	$('document').ready(function() {
+      	bFilter().init();
+    	});
+  	</script>
+	</body>
+</html>
