@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 		<script src="bFilter.js"></script>		
-		<script src="tag_categories.js"></script>		
+<!-- 		<script src="tag_categories.js"></script>	 -->	
 		<script src="isotope.pkgd.min.js"></script>
 		<link rel="stylesheet" type="text/css"  href="style.css"/>
 		<link rel="stylesheet" type="text/css"  href="bFilter.css"/>
@@ -15,30 +15,79 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 
-<script>
-function showLink() {
-  
-}
-</script>
+
 	</head>
 	<body>
   	<div id="head">
     	<img src="https://www.berklee.edu/sites/all/themes/suite_222/logo.png" alt="Berklee Logo" title="Berklee Homepage">
   	</div>
   	<div id="page-content">
-    	<div id="bFilter">
+    	<div id="bFilter-container"></div>
+  	</div>
+  	<div id="foot"></div>
+
+    <bFilter-templates style="display: none;">
+      <!--% scaffolding %-->
+      <div id="bFilter">
       	<div id="bFilter-header">
         	<h1>Find Your Program</h1>
       	</div>
+      	<div class="mobile_filter_btn_position"></div>
+      	<span class="mobile_filter_btn"><i class="fa fa-filter"></i> Filter</span>
       	<div id="bFilter-options" class="clearfix"></div>
       	<div id="bFilter-applied"></div>
+      	<div id="bFilter-nofilter" class="clearfix" style="display: none;"></div>
       	<div id="bFilter-results" class="clearfix"></div>
     	</div>
-  	</div>
-  	<div id="foot"></div>
+    
+    	<!--% bOption %-->
+      <div class="bOption grid grid-4"><span></span></div>
+      
+      <!--% bOption_overlay %-->
+      <div class="bOption-overlay" style="display: none;"></div>
+      
+      <!--% close_filter_overlay %-->
+      <div class="close_filter_overlay">Close</div>
+      
+      <!--% filter_input %-->
+      <div class="filter_input"><label><input type="checkbox"></label></div>
+      
+      <!--% bTag %-->
+      <span class="bTag"><i class="fa fa-times"></i> </span>
+      
+      <!--% clear_all_tags %-->
+      <span class="bTag clear_all">Clear All</span>
+      
+      <!--% no_results %-->
+      <div id="no_results">We have over 100 programs, but none that match your specific selection. To broaden your search, remove a tag or add additional options from the filters above.</div>
+      
+      <!--% bResult %-->
+      <div class="bResult grid grid-4">
+        <a class="block_link">
+        	<div class="bResult-content">
+          	<div class="bResult-image"></div>
+          	<div class="bResult-data">
+            	<span class="display_group"></span>
+            	<div class="program_title">
+              	<div class="title_holder"><span class="title"></span></div>
+              	<div class="link_holder" style="display: none;"><span class="view_link red_btn">View Program</span></div>
+              </div>
+              <div class="filter_results_holder">
+              	<table cellpadding="0" cellspacing="0" border="0" class="filter_results"></table>
+              </div>
+          	</div>
+        	</div>
+        </a>
+      </div>
+    </bFilter-templates>
+    
+    
   	<script>
     	$('document').ready(function() {
-      	bFilter().init();
+      	$.get('https://www.berklee.edu/zxyz/find-your-program-json', function(data) {
+        	bFilter().init(data);
+      	});
+      	
     	});
   	</script>
 	</body>
